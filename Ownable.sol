@@ -99,4 +99,10 @@ contract MessageOfTheMoment is Ownable {
         message = _message;
     }
 
+    // add an owner-only function to change the maxLength
+    // will fail if the caller is not the owner, preventing any data changes
+    function setMaxLength(uint _maxLength) public onlyOwner {
+        maxLength = _maxLength;
+    }
+
 }
