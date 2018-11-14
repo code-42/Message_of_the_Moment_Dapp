@@ -78,11 +78,17 @@ contract Ownable {
 }
 
 
-// Below the Ownable class, create a class for our contract that we will deploy.
+// Below the Ownable class, create a class for our contract that we will deploy
 contract MessageOfTheMoment is Ownable {
 
     // add data types to the contract
     string public message;
-    uint public maxLength; 
+    uint public maxLength;
+
+    // add a constructorto initialize the contract’s data
+    constructor() public {
+        message = "Hello World";
+        maxLength = 280;
+    } 
 
 }
