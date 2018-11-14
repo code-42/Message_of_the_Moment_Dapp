@@ -172,6 +172,12 @@
                 );
             }
 
+            // get a transaction recipt
+            // https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethgettransactionreceipt
+            // https://github.com/ethereum/wiki/wiki/JavaScript-API#using-callbacks
+            // var receipt = web3.eth.getTransactionReceipt(result);
+            // console.log(receipt);
+
         </script>
 
     </head>
@@ -182,5 +188,13 @@
         <!-- input box to set new message -->
         New Message: <input type="text" id="new_message" />
         <button onclick="setMessage()">Set Message</button>
+        <p>After you submit the message, Metamask will ask for confirmation.
+            <br>
+            After waiting several seconds,
+            please refresh/reload the page to see the new message.
+            <br>
+            It takes several seconds to return because the transaction
+            has to be approved.  That's just the way the blockchain works.
+        </p>
   </body>
 </html>
