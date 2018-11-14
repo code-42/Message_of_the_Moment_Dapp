@@ -156,6 +156,22 @@
                     $('#message').text(result);
                 });
             });
+
+            // the setMessage function for the form to call
+            function setMessage() {
+                let message = $('#new_message').val();
+                contract.setMessage.sendTransaction(
+                    message, 
+                    {gasPrice: web3.toWei(4.1, 'Gwei')}, 
+                    (error, result) => {
+                        if(error) {
+                            return console.log(error);
+                        }
+                        console.log("txhash: " + result); 
+                    }
+                );
+            }
+
         </script>
 
     </head>
