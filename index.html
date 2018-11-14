@@ -1,165 +1,170 @@
 <html>
     <head>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script>
-      </script>
-    </head>
-    <body>
-        <div id="message"></div>
-    </body>
-    <script>
-        const contract_address = "0x3be4549BC75F730e6eF25D333cdf272023B7DF80";
-        const abi = [
-            {
-                "anonymous": false,
-                "inputs": [
-                    {
-                        "indexed": true,
-                        "name": "previousOwner",
-                        "type": "address"
-                    },
-                    {
-                        "indexed": true,
-                        "name": "newOwner",
-                        "type": "address"
-                    }
-                ],
-                "name": "OwnershipTransferred",
-                "type": "event"
-            },
-            {
-                "constant": false,
-                "inputs": [],
-                "name": "renounceOwnership",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_maxLength",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "setMaxLength",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_message",
-                        "type": "string"
-                    }
-                ],
-                "name": "setMessage",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "newOwner",
-                        "type": "address"
-                    }
-                ],
-                "name": "transferOwnership",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "constructor"
-            },
-            {
-                "constant": true,
-                "inputs": [],
-                "name": "isOwner",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "bool"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [],
-                "name": "maxLength",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [],
-                "name": "message",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "constant": true,
-                "inputs": [],
-                "name": "owner",
-                "outputs": [
-                    {
-                        "name": "",
-                        "type": "address"
-                    }
-                ],
-                "payable": false,
-                "stateMutability": "view",
-                "type": "function"
-            }
-        ];
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
-        // Metamask automatically injects an object named web3 
-        // to the page before the load event completes.
-        // if the web3 object is not found, it is because 
-        // the user does not have Metamask installed
-        let contract;
-        window.addEventListener('load', () => {
-            if(typeof(web3) === 'undefined') {
-                return console.log("Metamask is not installed.");
-            }
-            contract = web3.eth.contract(abi).at(contract_address);
-
-            // callback function to read message if it exists
-            contract.message.call((error, result) => {
-                if(error) {
-                    return console.log(error);
+        <script>
+            const contract_address = "0x7016B1a2d5F5BC5107161Ef111D06dfd09843Ba5";
+            const abi = [
+                {
+                    "anonymous": false,
+                    "inputs": [
+                        {
+                            "indexed": true,
+                            "name": "previousOwner",
+                            "type": "address"
+                        },
+                        {
+                            "indexed": true,
+                            "name": "newOwner",
+                            "type": "address"
+                        }
+                    ],
+                    "name": "OwnershipTransferred",
+                    "type": "event"
+                },
+                {
+                    "constant": false,
+                    "inputs": [],
+                    "name": "renounceOwnership",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "constant": false,
+                    "inputs": [
+                        {
+                            "name": "_maxLength",
+                            "type": "uint256"
+                        }
+                    ],
+                    "name": "setMaxLength",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "constant": false,
+                    "inputs": [
+                        {
+                            "name": "_message",
+                            "type": "string"
+                        }
+                    ],
+                    "name": "setMessage",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "constant": false,
+                    "inputs": [
+                        {
+                            "name": "newOwner",
+                            "type": "address"
+                        }
+                    ],
+                    "name": "transferOwnership",
+                    "outputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "function"
+                },
+                {
+                    "inputs": [],
+                    "payable": false,
+                    "stateMutability": "nonpayable",
+                    "type": "constructor"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "isOwner",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "bool"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "maxLength",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "uint256"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "message",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "string"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "owner",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "address"
+                        }
+                    ],
+                    "payable": false,
+                    "stateMutability": "view",
+                    "type": "function"
                 }
-                $('#message').text(result);
+            ];
+
+            // Metamask automatically injects an object named web3 
+            // to the page before the load event completes.
+            // if the web3 object is not found, it is because 
+            // the user does not have Metamask installed
+            let contract;
+            window.addEventListener('load', () => {
+                if(typeof(web3) === 'undefined') {
+                    return console.log("Metamask is not installed.");
+                }
+                contract = web3.eth.contract(abi).at(contract_address);
+
+                // callback function to read message if it exists
+                contract.message.call((error, result) => {
+                    if(error) {
+                        return console.log(error);
+                    }
+                    $('#message').text(result);
+                });
             });
-        });
-    </script>
+        </script>
+
+    </head>
+  <body>
+        <div id="message"></div>
+
+        <br>
+        <!-- input box to set new message -->
+        New Message: <input type="text" id="new_message" />
+        <button onclick="setMessage()">Set Message</button>
+  </body>
 </html>
