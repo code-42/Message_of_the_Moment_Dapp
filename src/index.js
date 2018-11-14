@@ -141,11 +141,15 @@ const abi = [
 let contract;
 let my_web3;
 let account;
+
+// infura is the Ethereum node we are reading from
 const rpcUrl = "https://ropsten.infura.io";
 
 window.addEventListener('load', () => {
     if(typeof(web3) === 'undefined') {
-        return console.log("Metamask is not installed.");
+        // return console.log("Metamask is not installed.");
+        // enables read-only support for visitors without Metamask or an Ethereum account
+        my_web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
     }
     contract = web3.eth.contract(abi).at(contract_address);
 
