@@ -154,14 +154,19 @@ window.addEventListener('load', () => {
         my_web3 = new Web3(web3.currentProvider);    
     }
 
-    contract = my_web3.eth.contract(abi).at(contract_address);
+    // contract = my_web3.eth.contract(abi).at(contract_address);
+    contract = new my_web3.eth.Contract(abi, contract_address);
 
     // callback function to read message if it exists
-    contract.message.call((error, result) => {
+    // contract.message.call((error, result) => {
+    contract.methods.message().call((error, result) => {
         if(error) {
             return console.log(error);
         }
         $('#message').text(result);
+    // callback is now a promise so catch error and display it
+    }).catch((error) => {
+        console.log("Error: " + error);
     });
 
     // attach the buttons event handler to function setMessage()
@@ -171,16 +176,22 @@ window.addEventListener('load', () => {
 // the setMessage function for the form to call
 function setMessage() {
     let message = $('#new_message').val();
-    contract.setMessage.sendTransaction(
-        message, 
-        {gasPrice: my_web3.toWei(4.1, 'Gwei')}, 
+    // contract.setMessage.sendTransaction(
+    //  message, 
+    contract.methods.setMessage(message).send(
+        // {gasPrice: my_web3.toWei(4.1, 'Gwei')}, 
+        // see video part 3 @ 15.35 for discussion of .toWei() method
+        {gasPrice: my_web3.utils.toWei("4.1", 'Gwei')},
         (error, result) => {
             if(error) {
                 return console.log(error);
             }
             console.log("txhash: " + result); 
         }
-    );
+    // callback is now a promise so catch error and display it
+    ).catch((error) => {
+        console.log("Error: " + error);
+    });
 }
 
 // get a transaction recipt
