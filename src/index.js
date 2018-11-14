@@ -157,6 +157,21 @@ window.addEventListener('load', () => {
     // contract = my_web3.eth.contract(abi).at(contract_address);
     contract = new my_web3.eth.Contract(abi, contract_address);
 
+    // get the users address
+    my_web3.eth.getAccounts((error, result) => {
+        if(error) {
+          console.log(error);
+        } else if(result.length == 0) {
+          console.log("You are not logged in");
+        } else {
+          // change this array index to allow users to select which account to use
+          account = result[0];
+          contract.options.from = account;
+        }
+      }).catch((error) => {
+        console.log("Error: " + error);
+      });
+
     // callback function to read message if it exists
     // contract.message.call((error, result) => {
     contract.methods.message().call((error, result) => {
