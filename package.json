@@ -1,0 +1,30 @@
+{
+  "name": "message_of_the_moment_dapp",
+  "version": "1.0.0",
+  "description": "Tutorial => https://steemit.com/tutorial/@hardlydifficult/ethereum-dapp-tutorial-part-2-of-3-web-front-end-with-metamask-integration",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-42/Message_of_the_Moment_Dapp.git"
+  },
+  "keywords": [
+    "ethereum",
+    "solidity",
+    "dapp"
+  ],
+  "author": "ED inspired by tutorial author",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-42/Message_of_the_Moment_Dapp/issues"
+  },
+  "homepage": "https://github.com/code-42/Message_of_the_Moment_Dapp#readme"
+}
