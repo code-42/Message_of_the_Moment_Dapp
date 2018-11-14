@@ -141,5 +141,17 @@
                 "type": "function"
             }
         ];
+
+        // Metamask automatically injects an object named web3 
+        // to the page before the load event completes.
+        // if the web3 object is not found, it is because 
+        // the user does not have Metamask installed
+        let contract;
+        window.addEventListener('load', () => {
+            if(typeof(web3) === 'undefined') {
+                return console.log("Metamask is not installed.");
+            }
+            contract = web3.eth.contract(abi).at(contract_address);
+        });
     </script>
 </html>
