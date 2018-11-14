@@ -91,4 +91,12 @@ contract MessageOfTheMoment is Ownable {
         maxLength = 280;
     } 
 
+    // add a function for anyone to change the message
+    // use require to halt execution if the new message is too long
+    function setMessage(string _message) public {
+        require(bytes(_message).length <= maxLength, "That message is too long.");
+        
+        message = _message;
+    }
+
 }
