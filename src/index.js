@@ -150,8 +150,11 @@ window.addEventListener('load', () => {
         // return console.log("Metamask is not installed.");
         // enables read-only support for visitors without Metamask or an Ethereum account
         my_web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
+    } else {
+        my_web3 = new Web3(web3.currentProvider);    
     }
-    contract = web3.eth.contract(abi).at(contract_address);
+
+    contract = my_web3.eth.contract(abi).at(contract_address);
 
     // callback function to read message if it exists
     contract.message.call((error, result) => {
@@ -170,7 +173,7 @@ function setMessage() {
     let message = $('#new_message').val();
     contract.setMessage.sendTransaction(
         message, 
-        {gasPrice: web3.toWei(4.1, 'Gwei')}, 
+        {gasPrice: my_web3.toWei(4.1, 'Gwei')}, 
         (error, result) => {
             if(error) {
                 return console.log(error);
