@@ -139,6 +139,10 @@ const abi = [
 // if the web3 object is not found, it is because 
 // the user does not have Metamask installed
 let contract;
+let my_web3;
+let account;
+const rpcUrl = "https://ropsten.infura.io";
+
 window.addEventListener('load', () => {
     if(typeof(web3) === 'undefined') {
         return console.log("Metamask is not installed.");
