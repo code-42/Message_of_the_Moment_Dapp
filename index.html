@@ -152,6 +152,14 @@
                 return console.log("Metamask is not installed.");
             }
             contract = web3.eth.contract(abi).at(contract_address);
+
+            // callback function to read message if it exists
+            contract.message.call((error, result) => {
+                if(error) {
+                    return console.log(error);
+                }
+                $('#message').text(result);
+            });
         });
     </script>
 </html>
