@@ -150,6 +150,9 @@ window.addEventListener('load', () => {
         }
         $('#message').text(result);
     });
+
+    // attach the buttons event handler to function setMessage()
+    $('#set_message').click(setMessage);
 });
 
 // the setMessage function for the form to call
