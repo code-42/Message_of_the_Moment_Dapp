@@ -1,3 +1,5 @@
+import Web3 from "web3";
+
 const contract_address = "0x7016B1a2d5F5BC5107161Ef111D06dfd09843Ba5";
 const abi = [
     {
